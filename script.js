@@ -51,12 +51,24 @@ function addC() {
    
 }
 //Removes a row
-function removeR() {
-    alert("Clicked Remove Row")
+function removeR()
+{
+    let grid = document.getElementById("grid");
+    if(grid.hasChildNodes())
+    {
+        grid.removeChild(grid.lastChild);
+    }
+    //alert("Clicked Remove Row")
 }
 //Remove a column
-function removeC() {
-    alert("Clicked Remove Col")
+function removeC()
+{
+    let allrows = document.getElementsByTagName("tr");
+    for(let i = 0; i < allrows.length; i++)
+    {
+       allrows[i].removeChild(allrows[i].lastChild)
+    }
+        //alert("Clicked Remove Col")
 }
 //sets global var for selected color
 function selected(){
@@ -69,9 +81,23 @@ function fill(){
 }
 
 function clearAll(){
+    for(let i = 0; i < allrows.length; i++)
+    {
+        
+    }
     alert("Clicked Clear All")
 }
 
 function fillU(){
-    alert("Clicked Fill All Uncolored")
+    //alert("Clicked Fill All Uncolored")
+    let table = document.getElementById("grid"); 
+    for(let i = 0, row; row = table.rows[i]; i++){
+        for(let j = 0, col; col = row.cells[j]; j++){
+            let col= row.cells[j];
+             if(col.style.backgroundColor == ''){
+                col.style.backgroundColor = colorSelected;
+           }
+        }
+    }
 }
+   
