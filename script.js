@@ -66,6 +66,9 @@ function selected(){
 
 function fill(){
     alert("Clicked Fill All")
+   
+
+
 }
 
 function clearAll(){
