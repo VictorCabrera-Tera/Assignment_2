@@ -99,5 +99,15 @@ function clearAll(){
 }
 
 function fillU(){
-    alert("Clicked Fill All Uncolored")
+    //alert("Clicked Fill All Uncolored")
+    let table = document.getElementById("grid"); 
+    for(let i = 0, row; row = table.rows[i]; i++){
+        for(let j = 0, col; col = row.cells[j]; j++){
+            let col= row.cells[j];
+             if(col.style.backgroundColor == ''){
+                col.style.backgroundColor = colorSelected;
+           }
+        }
+    }
 }
+   
