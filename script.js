@@ -77,7 +77,6 @@ function selected(){
 }
 
 function fill(){
-    function fill(){
         //alert("Clicked Fill All")
         let allrows = document.getElementsByTagName("tr");
     
@@ -88,7 +87,6 @@ function fill(){
             }
         } 
     }
-}
 
 function clearAll()
 {
