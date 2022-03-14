@@ -77,7 +77,6 @@ function selected(){
 }
 
 function fill(){
-    function fill(){
         //alert("Clicked Fill All")
         let allrows = document.getElementsByTagName("tr");
     
@@ -88,23 +87,29 @@ function fill(){
             }
         } 
     }
-}
 
 function clearAll()
 {
     let allrows = document.getElementsByTagName("tr");
 
-
     for(let i = 0; i < allrows.length; i++)
     {
      	for(let j = 0; j < allrows[i].children.length; j++)
-	{
-	   allrows[i].children[j].style.backgroundColor = "white";
-	}
+	    {
+	        allrows[i].children[j].style.backgroundColor = "white";
+	    }
     }
     //alert("Clicked Clear All")
 }
-
 function fillU(){
-    alert("Clicked Fill All Uncolored")
+    //alert("Clicked Fill All Uncolored")
+    let table = document.getElementById("grid"); 
+    for(let i = 0, row; row = table.rows[i]; i++){
+        for(let j = 0, col; col = row.cells[j]; j++){
+            let col= row.cells[j];
+             if(col.style.backgroundColor == ''){
+                col.style.backgroundColor = colorSelected;
+           }
+        }
+    }
 }
