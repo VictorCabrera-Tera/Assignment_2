@@ -39,6 +39,8 @@ function addR() {
 function addC() {  
     //alert("Clicked Add Col")
     let allrows = document.getElementsByTagName("tr");
+    let grid = document.getElementById("grid");
+    let col = document.createElement("td");
 
     for(let i = 0; i < allrows.length; i++)
     {
@@ -48,27 +50,42 @@ function addC() {
         };
         allrows[i].appendChild(column);
     }
+    if(allrows.length === 0){
+        let row = document.createElement("tr");
+        row.appendChild(col);
+        grid.appendChild(row);
+    }
    
 }
 //Removes a row
 function removeR()
 {
     let grid = document.getElementById("grid");
-    if(grid.hasChildNodes())
+    let row = document.getElementsByTagName("tr");
+    if(grid.hasChildNodes() && row.length > 0)
     {
         grid.removeChild(grid.lastChild);
     }
-    //alert("Clicked Remove Row")
+    else{
+        alert("No rows to remove");
+    }
 }
+
 //Remove a column
 function removeC()
 {
     let allrows = document.getElementsByTagName("tr");
-    for(let i = 0; i < allrows.length; i++)
+    if(allrows > 0)
     {
-       allrows[i].removeChild(allrows[i].lastChild)
+        for(let i = 0; i < allrows.length; i++)
+        {
+            allrows[i].removeChild(allrows[i].lastChild)
+        }
     }
-        //alert("Clicked Remove Col")
+    else{
+       alert("No columns to remove");
+    }
+
 }
 //sets global var for selected color
 function selected(){
@@ -77,36 +94,39 @@ function selected(){
 }
 
 function fill(){
-        //alert("Clicked Fill All")
-        let allrows = document.getElementsByTagName("tr");
-    
+    let allrows = document.getElementsByTagName("tr");
+
         for(let i = 0; i < allrows.length; i++){
             for(let j = 0; j < allrows[i].children.length; j++)
             {
                 allrows[i].children[j].style.backgroundColor = colorSelected;
             }
         } 
-    }
 
-function clearAll()
-{
+}
+
+function clearAll(){
     let allrows = document.getElementsByTagName("tr");
-
     for(let i = 0; i < allrows.length; i++)
     {
-     	for(let j = 0; j < allrows[i].children.length; j++)
-	    {
-	        allrows[i].children[j].style.backgroundColor = "white";
-	    }
+        let allrows = document.getElementsByTagName("tr");
+
+      for(let i = 0; i < allrows.length; i++)
+      {
+     	  for(let j = 0; j < allrows[i].children.length; j++)
+	      {
+	        allrows[i].children[j].style.backgroundColor = "";
+	      }
+      }
     }
-    //alert("Clicked Clear All")
 }
 function fillU(){
-    //alert("Clicked Fill All Uncolored")
     let table = document.getElementById("grid"); 
+    //loop through the grid
     for(let i = 0, row; row = table.rows[i]; i++){
         for(let j = 0, col; col = row.cells[j]; j++){
             let col= row.cells[j];
+            //if there is no background color, then set cell color to colorSelected
              if(col.style.backgroundColor == ''){
                 col.style.backgroundColor = colorSelected;
            }
