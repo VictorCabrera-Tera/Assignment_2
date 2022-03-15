@@ -1,4 +1,4 @@
 # Assignment_2
-Victor Cabrera
-Ianne Jullia Casimbon
-Ar-Raya Islam
+Victor Cabrera: VictorCabrera-Tera
+Ianne Jullia Casimbon: ijCasimbon
+Ar-Raya Islam: 
