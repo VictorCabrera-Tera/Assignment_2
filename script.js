@@ -95,13 +95,14 @@ function selected(){
 
 function fill(){
     let allrows = document.getElementsByTagName("tr");
-    
+
         for(let i = 0; i < allrows.length; i++){
             for(let j = 0; j < allrows[i].children.length; j++)
             {
                 allrows[i].children[j].style.backgroundColor = colorSelected;
             }
         } 
+
 }
 
 function clearAll(){
@@ -110,16 +111,15 @@ function clearAll(){
     {
         let allrows = document.getElementsByTagName("tr");
 
-    for(let i = 0; i < allrows.length; i++)
-    {
-     	for(let j = 0; j < allrows[i].children.length; j++)
-	    {
+      for(let i = 0; i < allrows.length; i++)
+      {
+     	  for(let j = 0; j < allrows[i].children.length; j++)
+	      {
 	        allrows[i].children[j].style.backgroundColor = "";
-	    }
-    }
+	      }
+      }
     }
 }
-
 function fillU(){
     let table = document.getElementById("grid"); 
     //loop through the grid
@@ -133,4 +133,3 @@ function fillU(){
         }
     }
 }
-   
