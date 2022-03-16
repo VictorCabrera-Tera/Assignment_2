@@ -51,6 +51,9 @@ function addC() {
     }
     if(allrows.length === 0){
         let row = document.createElement("tr");
+        row.onclick = function (){
+            this.style.backgroundColor = colorSelected;
+        }
         row.appendChild(col);
         grid.appendChild(row);
     }
