@@ -4,20 +4,20 @@ let colorSelected;
 function addR() {
     let grid = document.getElementById("grid");
     let rows = document.getElementsByTagName("tr");
-  
+
     let row = document.createElement("tr");
     let col = document.createElement("td");
     col.onclick = function (){
         this.style.backgroundColor = colorSelected;
         };
-    
+
     let first_row = document.querySelector("tr"); //get the first tr element
-    
+
     if(rows.length >= 1)
     {
         let all_tds = first_row.getElementsByTagName('td'); //get an array of all the columns in the first row
         let allcols_length = all_tds.length; //get the length of the array of columns
-       
+
         for(i = 0; i < allcols_length;i++)
         {
             row.appendChild(col);
@@ -27,19 +27,23 @@ function addR() {
             };
         }
         grid.appendChild(row);
-    } 
+    }
     if (rows.length === 0)
     {
         row.appendChild(col);
         grid.appendChild(row);
-    } 
+    }
 }
 
 //Adds a column
-function addC() {  
+function addC() {
     let allrows = document.getElementsByTagName("tr");
     let grid = document.getElementById("grid");
+
     let col = document.createElement("td");
+    col.onclick = function(){
+        this.style.backgroundColor = colorSelected;
+    }
 
     for(let i = 0; i < allrows.length; i++)
     {
@@ -51,9 +55,7 @@ function addC() {
     }
     if(allrows.length === 0){
         let row = document.createElement("tr");
-        row.onclick = function (){
-            this.style.backgroundColor = colorSelected;
-        }
+       
         row.appendChild(col);
         grid.appendChild(row);
     }
