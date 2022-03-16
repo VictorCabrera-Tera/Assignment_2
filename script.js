@@ -2,7 +2,6 @@ let colorSelected;
 
 //Adds a row
 function addR() {
-    //alert("Clicked Add Row")
     let grid = document.getElementById("grid");
     let rows = document.getElementsByTagName("tr");
   
@@ -35,9 +34,9 @@ function addR() {
         grid.appendChild(row);
     } 
 }
+
 //Adds a column
 function addC() {  
-    //alert("Clicked Add Col")
     let allrows = document.getElementsByTagName("tr");
     let grid = document.getElementById("grid");
     let col = document.createElement("td");
@@ -57,9 +56,9 @@ function addC() {
     }
    
 }
+
 //Removes a row
-function removeR()
-{
+function removeR(){
     let grid = document.getElementById("grid");
     let row = document.getElementsByTagName("tr");
     if(grid.hasChildNodes() && row.length > 0)
@@ -72,10 +71,9 @@ function removeR()
 }
 
 //Remove a column
-function removeC()
-{
+function removeC(){
     let allrows = document.getElementsByTagName("tr");
-    if(allrows > 0)
+    if(allrows.length > 0) 
     {
         for(let i = 0; i < allrows.length; i++)
         {
@@ -93,21 +91,19 @@ function selected(){
     console.log(colorSelected);
 }
 
+//fills the grid as one color
 function fill(){
-    alert("Clicked Fill All")
-   
-
     let allrows = document.getElementsByTagName("tr");
-
-        for(let i = 0; i < allrows.length; i++){
-            for(let j = 0; j < allrows[i].children.length; j++)
-            {
-                allrows[i].children[j].style.backgroundColor = colorSelected;
-            }
-        } 
-
+    for(let i = 0; i < allrows.length; i++) //loops through the grid
+    {
+        for(let j = 0; j < allrows[i].children.length; j++)
+        {
+            allrows[i].children[j].style.backgroundColor = colorSelected; //fills the cell as the color selected
+        }
+    } 
 }
 
+//clears the grid, resets the color back to white
 function clearAll(){
     let allrows = document.getElementsByTagName("tr");
     for(let i = 0; i < allrows.length; i++)
@@ -123,6 +119,8 @@ function clearAll(){
       }
     }
 }
+
+//Colors all uncolored cells in the grid
 function fillU(){
     let table = document.getElementById("grid"); 
     //loop through the grid
