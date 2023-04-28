@@ -108,7 +108,7 @@ function fill(){
     } 
 }
 
-//clears the grid, resets the color back to white
+//clears the grid, resets the color back to white #ffffff
 function clearAll(){
     let allrows = document.getElementsByTagName("tr");
     for(let i = 0; i < allrows.length; i++)
